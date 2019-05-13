@@ -7,7 +7,10 @@
 <section class="content">
     <h1>{{ title }}</h1>
     {% for d in data %}
-    {{ d.dog_name }}
+    <div class="notification">
+            <h2>{{ d.dog_name }}</h2>
+    </div>
+    
     {% endfor %}
 </section>
 

@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from .models import Dog, DogOwner
+
 
 # Create your views here.
-def view_dogs(request):
+def dog_list(request):
 
     data = Dog.objects.all()
 
