@@ -1,6 +1,7 @@
 from django.db import models
 
-# Create your models here.
+# Models based on assumption that one dog can be owned by one owner
+# and multiple dogs can be owned by one owner (one to many)
 
 class Dog(models.Model):
     owner_id = models.ForeignKey(DogOwner, on_delete=models.CASCADE)

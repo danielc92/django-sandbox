@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="section">
+<section class="container">
+<section class="content">
+    <h1>{{ title }}</h1>
+    {% for d in data %}
+    {{ d.dog_name }}
+    {% endfor %}
+</section>
+
+</section>
+</section>
+
+{% endblock content %}
