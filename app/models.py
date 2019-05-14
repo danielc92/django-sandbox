@@ -1,4 +1,5 @@
 from django.db import models as m
+from datetime import datetime
 
 # Models based on assumption that one dog can be owned by one owner
 # and multiple dogs can be owned by one owner (one to many)
@@ -27,7 +28,7 @@ class Tag(m.Model):
 class Article(m.Model):
     article_name = m.CharField(max_length=100)
     article_content = m.TextField(default="This article has no content yet..")
-    article_ct_date = m.DateTimeField(auto_now=True)
+    article_ct_date = m.DateTimeField(default=datetime.now)
 
     tags = m.ManyToManyField(Tag)
 
