@@ -2,18 +2,18 @@
 
 {% block content %}
 
-<section class="section">
-<section class="container">
-<section class="content">
-    <h1>{{ title }}</h1>
-    {% for d in data %}
-    <form action="." class="form" method="POST">
-{% csrf_token %}
-{{ form.as_p }}
-    </form>
-</section>
+    <section class="section">
+    <section class="container">
+    <section class="content">
+        <h1>{{ title }}</h1>
+        <form action="." class="form" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button is-success is-outlined" type="submit">Submit</button>
+        </form>
+    </section>
 
-</section>
-</section>
+    </section>
+    </section>
 
 {% endblock content %}
