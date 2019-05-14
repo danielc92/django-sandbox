@@ -11,6 +11,7 @@ Concepts covered in this project:
 - One to Many, Many to Many relationships
 - Rendering templates from ORM Models
 - File uploading
+- Basic HTML knowledge
 
 # Setup
 **How to obtain this repository:**
@@ -21,7 +22,7 @@ git clone https://github.com/danielc92/django-sandbox.git
 **This project uses a python 3.7 virtual environment**
 ```sh
 virtualenv --python=/path/to/python3bin venv
-source activate venv
+source venv/bin/activate
 pip install django
 ```
 
