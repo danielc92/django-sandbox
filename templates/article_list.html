@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="section">
+<section class="container">
+<section class="content">
+    <h1>{{ title }}</h1>
+    {% for d in data %}
+    {{d.tags}}
+    <div class="notification">
+        <h2>{{ d.article_name }}</h2>
+        <p>{{ d.article_content }}</p>
+ 
+        <code style="color:yellowgreen; background-color:transparent;">{{ d.article_ct_date }}</code>
+    </div>
+    
+    {% endfor %}
+</section>
+
+</section>
+</section>
+
+{% endblock content %}

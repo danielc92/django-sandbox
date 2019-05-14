@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Dog, DogOwner
+from .models import Dog, DogOwner, Article
 from .forms import DogForm, ArticleForm
 
 # Create your views here.
@@ -21,6 +21,16 @@ def dog_list(request):
                'data':data}
 
     return render(request, 'dog_list.html', context)
+
+
+def article_list(request):
+
+    data = Article.objects.all()
+
+    context = {'title':'Article list view',
+               'data':data}
+
+    return render(request, 'article_list.html', context)
 
 
 def dog_create(request):
