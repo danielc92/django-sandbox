@@ -1,36 +1,50 @@
 # Project Title
-A few sentences about the project.
-What are you building?
-What problem are you trying to solve?
-Who is the project for? Timeframe?
+A sandbox project to test functionality of Django Framework.
 
 # Before you get started
-Concepts/Software/Programming modules a user may have to read up on before getting started with this project. eg. 'Read about [neural networks](https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6?gi=44b811975215) before getting started.'
+Concepts covered in this project:
+- Request methods (POST, GET)
+- Template Engine (Jinja)
+- ORM Models
+- Creating forms from ORM Models
+- One to Many, Many to Many relationships
+- Rendering templates from ORM Models
+- File uploading
 
 # Setup
 **How to obtain this repository:**
 ```sh
-git clone https//link.to.this.projects.git-repo
+git clone https://github.com/danielc92/django-sandbox.git
 ```
-**Modules/dependencies:**
-- `pandas`
-- `requests`
-- `jupyter`
-- `sklearn`
 
-Install the following dependences:
+**This project uses a python 3.7 virtual environment**
 ```sh
-cd /local/location/of/this/repo
-pip install requirements.txt
+virtualenv --python=/path/to/python3bin venv
+source activate venv
+pip install django
+```
+
+**To create the database for the first time**
+```sh
+cd path/to/this/project (where manage.py resides)
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 # Tests
-- Tests performed on this project. What did you do? Which files were used? Was it successful?
+- Created Dog and DogOwner models (one to many relationship)
+- Created Article and Tag models (many to many relationship)
+- Created and tested route to create new Dogs
+- Created and tested route to create new Articles (Tags have to be created beforehand)
+- Render Dogs/Owners/Articles in list style
+
+# Notes
+- When created a model/form class which uses ImageField make sure request.FILES is passed into form model (eg DogForm(request.POST, request.FILES))
+- When creating a model/form class which uses ImageField make sure `enctype="multipart/form-data"` is present in the form attributes.
+- Adjust timezone in settings.py. Timezone strings can be found in django docs
 
 # Contributors
-- Name of Contributor 1
-- Name of Contributor 2
+- Daniel Corcoran
 
 # Sources
-- Sources for techniques/tutorials used in this project to help newcomers
-- Sources for data used in this project
+- [Django Documentation](https://docs.djangoproject.com/en/2.2/)
