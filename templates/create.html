@@ -6,7 +6,7 @@
     <section class="container">
     <section class="content">
         <h1>{{ title }}</h1>
-        <form action="." class="form" method="POST">
+        <form action="." class="form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="button is-success is-outlined" type="submit">Submit</button>

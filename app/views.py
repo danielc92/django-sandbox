@@ -26,12 +26,13 @@ def dog_list(request):
 def dog_create(request):
 
     if request.method == "POST":
-        form = DogForm(request.POST)
+        
+        form = DogForm(request.POST, request.FILES)
 
         if form.is_valid():
-            cd = form.cleaned_data
-            print('The form data has been cleaned:', cd)
-            Dog.objects.create(**cd)
+            
+            form.save()
+
             return redirect('success')
 
     else:
