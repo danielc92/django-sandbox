@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<section style="background-color: red;">
-<section class="section">
+<section style="background-color: #f2f2f2;">
+<section class="section" style="background-color: transparent;">
 <section class="container">
 <section class="content">
-    <h1>{{ title }}</h1>
+    <img src="{% static 'dog_group.jpg' %}" alt="">
+    <h2>{{ title }}</h2>
     {% for d in data %}
     <div class="notification is-white">
-        <h2>{{ d.owner_name }}</h2>
-        <p>{{ d.owner_address }}</p>
+        
+        <h3>{{ d.owner_name }}</h3>
+        
+        <p style="color: grey;">{{ d.owner_address }}</p>
+        
         {% for dog in d.dog_set.all %}
-            <span class="tag is-danger">{{ dog }}</span>
+        <div class="notification is-light">
+            <p>{{ dog.dog_name }}</p>
+            <img src="{{ dog.dog_image.url }}">
+        </div>
+            
         {% endfor%}
+    
     </div>
     
     {% endfor %}

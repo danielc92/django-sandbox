@@ -19,6 +19,8 @@ from app.views import (
     dog_list, 
     dog_create, 
     owner_list)
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,3 +28,8 @@ urlpatterns = [
     path('dog-create/', dog_create, name='dog_create'),
     path('owner-list/', owner_list, name='owner_list')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, 
+                      document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, 
+                      document_root=settings.STATIC_ROOT)

@@ -4,4 +4,4 @@ from .models import Dog, DogOwner
 class DogForm(ModelForm):
     class Meta:
         model = Dog
-        fields = ['dog_name', 'owner_id']
+        fields = ['dog_name', 'dog_image', 'owner_id']
