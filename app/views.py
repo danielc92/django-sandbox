@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Dog, DogOwner
-from .forms import DogForm
+from .forms import DogForm, ArticleForm
 
 # Create your views here.
 def owner_list(request):
@@ -39,6 +39,25 @@ def dog_create(request):
         form = DogForm()
 
     context = {'form': form, 'title': 'Create a dog form.'}
+
+    return render(request, 'create.html', context)
+
+def article_create(request):
+
+    if request.method == "POST":
+
+        form = ArticleForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('success')
+
+    else:
+        form = ArticleForm()
+
+    context = {'form': form, 'title': 'Create an article'}
 
     return render(request, 'create.html', context)
 

@@ -19,6 +19,7 @@ from app.views import (
     dog_list, 
     dog_create, 
     owner_list,
+    article_create,
     success)
 
 from django.conf.urls.static import static
@@ -30,7 +31,8 @@ urlpatterns = [
     path('dog/list/', dog_list, name='dog_list'),
     path('dog/create/', dog_create, name='dog_create'),
     path('owner/list/', owner_list, name='owner_list'),
-    path('dog/create/success/', success, name='success')
+    path('create/success/', success, name='success'),
+    path('article/create/', article_create, name='article_create')
 ]
 
 if settings.DEBUG:
