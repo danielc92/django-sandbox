@@ -6,6 +6,7 @@ Concepts covered in this project:
 - Request methods (POST, GET)
 - Template Engine (Jinja)
 - ORM Models
+- Migrating ORM Models
 - Creating forms from ORM Models
 - One to Many, Many to Many relationships
 - Rendering templates from ORM Models
@@ -37,9 +38,11 @@ python manage.py migrate
 - Created and tested route to create new Dogs
 - Created and tested route to create new Articles (Tags have to be created beforehand)
 - Render Dogs/Owners/Articles in list style
+- Accessing all the custom models in admin panel
 
 # Notes
 - When created a model/form class which uses ImageField make sure request.FILES is passed into form model (eg DogForm(request.POST, request.FILES))
+- When uploading files make sure `MEDIA_ROOT` and `MEDIA_URL` are set for usage in `DEBUG` mode. Additionally make sure media is added to urlpatterns in `urls.py`
 - When creating a model/form class which uses ImageField make sure `enctype="multipart/form-data"` is present in the form attributes.
 - Adjust timezone in settings.py. Timezone strings can be found in django docs
 
