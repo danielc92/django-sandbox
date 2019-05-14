@@ -12,10 +12,11 @@
         <article class="content">
             <h2>{{ d.article_name }}</h2>
             <p>{{ d.article_content }}</p>
+            <p class="help has-text-info">Created on: {{ d.article_ct_date }}</p>
             {% for tag_object in d.tags.all %}
                 <span class="tag is-primary">{{tag_object.tag_name }}</span>
             {% endfor %}
-            <p><code style="color:yellowgreen; background-color:transparent;">{{ d.article_ct_date }}</code></p>
+           
         </article>
     </div>
     
