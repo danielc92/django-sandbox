@@ -13,7 +13,7 @@ class DogOwner(models.Model):
 class Dog(models.Model):
     owner_id = models.ForeignKey(DogOwner, on_delete=models.CASCADE)
     dog_name = models.CharField(max_length=100)
-    dog_image = models.ImageField(upload_to='dogs/', default='dog_default.jpg')
+    dog_image = models.ImageField(upload_to='dogs/%Y/%m/%D/', default='dog_default.jpg')
 
     def __str__(self):
         return self.dog_name

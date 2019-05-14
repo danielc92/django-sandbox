@@ -32,7 +32,7 @@ def dog_create(request):
             cd = form.cleaned_data
             print('The form data has been cleaned:', cd)
             Dog.objects.create(**cd)
-            return HttpResponse('<code>success</code>')
+            return redirect('success')
 
     else:
         form = DogForm()
@@ -40,3 +40,7 @@ def dog_create(request):
     context = {'form': form, 'title': 'Create a dog form.'}
 
     return render(request, 'create.html', context)
+
+def success(request):
+
+    return render(request, 'success.html', {})

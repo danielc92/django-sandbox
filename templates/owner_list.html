@@ -17,7 +17,10 @@
         {% for dog in d.dog_set.all %}
         <div class="notification is-light">
             <p>{{ dog.dog_name }}</p>
+            {% if dog.dog_image %}
             <img src="{{ dog.dog_image.url }}">
+            {% endif %}
+            
         </div>
             
         {% endfor%}
