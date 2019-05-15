@@ -1,8 +1,9 @@
 from django.db import models as m
 from datetime import datetime
-
+from tinymce.models import HTMLField
 # Models based on assumption that one dog can be owned by one owner
 # and multiple dogs can be owned by one owner (one to many)
+
 
 class DogOwner(m.Model):
     owner_name = m.CharField(max_length=100)
@@ -10,6 +11,7 @@ class DogOwner(m.Model):
 
     def __str__(self):
         return self.owner_name
+
 
 class Dog(m.Model):
     owner_id = m.ForeignKey(DogOwner, on_delete=m.CASCADE)
@@ -19,11 +21,13 @@ class Dog(m.Model):
     def __str__(self):
         return self.dog_name
 
+
 class Tag(m.Model):
     tag_name = m.CharField(max_length=50)
 
     def __str__(self):
         return self.tag_name
+
 
 class Article(m.Model):
     article_name = m.CharField(max_length=100)
@@ -34,3 +38,7 @@ class Article(m.Model):
 
     def __str__(self):
         return self.article_name
+
+class Mce(m.Model):
+
+    mce_content = HTMLField()

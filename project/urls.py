@@ -34,7 +34,8 @@ urlpatterns = [
     path('owner/list/', owner_list, name='owner_list'),
     path('article/list/', article_list, name='article_list'),
     path('create/success/', success, name='success'),
-    path('article/create/', article_create, name='article_create')
+    path('article/create/', article_create, name='article_create'),
+    path('mce/create/', mce_create, name='mce_create')
 ]
 
 if settings.DEBUG:

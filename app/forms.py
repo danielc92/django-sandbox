@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Dog, Article
+from .models import Dog, Article, Mce
 
 class DogForm(ModelForm):
     class Meta:
@@ -10,3 +10,8 @@ class ArticleForm(ModelForm):
     class Meta:
         model = Article
         fields = ['article_name', 'article_content', 'tags']
+
+class MceForm(ModelForm):
+    class Meta:
+        model = Mce
+        fields = ['mce_content']

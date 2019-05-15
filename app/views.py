@@ -74,3 +74,20 @@ def article_create(request):
 def success(request):
 
     return render(request, 'success.html', {})
+
+def mce_create(request):
+
+    if request.method == 'POST':
+        form = MceForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('success')
+    else:
+        form = MceForm()
+
+    context = {'form': form, 'title': 'Create mce content'}
+
+    return render(request, 'create.html', context)

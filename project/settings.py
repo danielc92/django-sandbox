@@ -26,9 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # third party
+    # THIRD PARTY
+    'tinymce',
 
-    # my application
+    # APPLICATION(S)
     'app'
 ]
 

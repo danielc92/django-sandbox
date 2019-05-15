@@ -5,12 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Title Page</title>
+        <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+        <script>tinymce.init({selector:'textarea'});</script>
+        <script type="text/javascript" src="{% static 'custom-mce.js' %}" ></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css"/>
     </head>
     <body>
 
         {% block content %}
-
         {% endblock content %}
 
     </body>
