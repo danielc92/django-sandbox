@@ -21,6 +21,7 @@ from app.views import (
     owner_list,
     article_create,
     article_list,
+    mce_create,
     success)
 
 from django.conf.urls.static import static

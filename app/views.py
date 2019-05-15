@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Dog, DogOwner, Article
-from .forms import DogForm, ArticleForm
+from .forms import DogForm, ArticleForm, MceForm
 
 # Create your views here.
 def owner_list(request):
@@ -81,7 +81,7 @@ def mce_create(request):
         form = MceForm(request.POST)
 
         if form.is_valid():
-
+            print(form.cleaned_data)
             form.save()
 
             return redirect('success')
