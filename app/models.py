@@ -31,14 +31,10 @@ class Tag(m.Model):
 
 class Article(m.Model):
     article_name = m.CharField(max_length=100)
-    article_content = m.TextField(default="This article has no content yet..")
+    article_content = HTMLField()
     article_ct_date = m.DateTimeField(default=datetime.now)
 
     tags = m.ManyToManyField(Tag)
 
     def __str__(self):
         return self.article_name
-
-class Mce(m.Model):
-
-    mce_content = HTMLField()
