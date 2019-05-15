@@ -2,15 +2,22 @@
 
 {% block content %}
 
-    <section class="section">
+<section class="section">
     <section class="container">
-    <section class="content">
-        <h2>Success</h2>
-        <a href="{% url 'owner_list' %}" class="button is-outlined is-primary">Back to Owner List</a>
-        <a href="{% url 'dog_create' %}" class="button is-outlined is-primary">Back to Dog Create Form</a>
-    </section>
+        <section class="content">
+            <h2>Success</h2>
+            <p>You are seeing this message because you have successfully made a post request.</p>
+            <h3>Navigate back to an owner route</h3>
+            <a href="{% url 'owner_list' %}" class="button is-outlined is-primary">Owners List</a>
 
+            <h3>Navigate back to a dog route</h3>
+            <a href="{% url 'dog_create' %}" class="button is-outlined is-primary">Add a dog</a>
+            <a href="{% url 'dog_list' %}" class="button is-outlined is-primary">Dogs List</a>
+            
+            <h3>Navigate back to mce form</h3>
+            <a href="{% url 'mce_create' %}" class="button is-outlined is-primary">Create HTML</a>
+        </section>
     </section>
-    </section>
+</section>
 
 {% endblock content %}

@@ -53,3 +53,4 @@ python manage.py migrate
 
 # Sources
 - [Django Documentation](https://docs.djangoproject.com/en/2.2/)
+- [Adding TinyMCE editor to Django Tutorial](https://www.codementor.io/hiteshgarg14/how-to-integrate-custom-rich-text-editor-in-django-54czmp0gi)
