@@ -40,6 +40,7 @@ python manage.py migrate
 - Created and tested route to create new Articles (Tags have to be created beforehand)
 - Render Dogs/Owners/Articles in list style
 - Accessing all the custom models in admin panel
+- Tested MCE widget for html editing functionality
 
 # Notes
 - When created a model/form class which uses ImageField make sure request.FILES is passed into form model (eg DogForm(request.POST, request.FILES))
