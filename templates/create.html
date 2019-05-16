@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{# load crispy_forms_tags #}
 
 {% block content %}
 
-    <section class="section">
+<section class="section">
     <section class="container">
-    <section class="content">
-        <h1>{{ title }}</h1>
-        <form action="." class="form" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button class="button is-success is-outlined" type="submit">Submit</button>
-        </form>
+        <section class="">
+            <h1>{{ title }}</h1>
+            <form action="." class="form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|safe }}
+                <button class="button is-success is-outlined" type="submit">Submit</button>
+            </form>
+        </section>
     </section>
-
-    </section>
-    </section>
+</section>
 
 {% endblock content %}

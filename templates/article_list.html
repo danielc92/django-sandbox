@@ -2,13 +2,16 @@
 
 {% block content %}
 
-<section class="section">
+<section class="section has-background-light">
 <section class="container">
 <section class="content">
-    <h1>{{ title }}</h1>
+    <h1>
+        <span class="icon"><i class="fas fa-info-circle"></i></span>
+        <span>{{ title }}</span>
+    </h1>
     {% for d in data %}
     
-    <div class="notification">
+    <div class="notification is-white">
         <article class="content">
             <h2>{{ d.article_name }}</h2>
             <p>{{ d.article_content|safe }}</p>
