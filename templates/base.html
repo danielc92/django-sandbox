@@ -2,20 +2,18 @@
 <html lang="">
     <head>
         {% load static %}
+        <title>Title Page</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title Page</title>
         <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
         <script>tinymce.init({selector:'textarea'});</script>
         <script type="text/javascript" src="{% static 'custom-mce.js' %}" ></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     </head>
     <body>
-
         {% block content %}
         {% endblock content %}
-
     </body>
 </html>

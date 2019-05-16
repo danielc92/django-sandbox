@@ -5,19 +5,20 @@
 <section class="section has-background-light">
 <section class="container">
 <section class="content">
+        
     <h1>
-        <span class="icon"><i class="fas fa-info-circle"></i></span>
         <span>{{ title }}</span>
     </h1>
     {% for d in data %}
     
     <div class="notification is-white">
         <article class="content">
+            <hr>
             <h2>{{ d.article_name }}</h2>
             <p>{{ d.article_content|safe }}</p>
             <p class="help has-text-info">Created on: {{ d.article_ct_date }}</p>
             {% for tag_object in d.tags.all %}
-                <span class="tag is-primary">{{tag_object.tag_name }}</span>
+                <span style= "border-radius: 0; border: .15rem solid black;" class="tag is-danger">{{tag_object.tag_name }}</span>
             {% endfor %}
            
         </article>
