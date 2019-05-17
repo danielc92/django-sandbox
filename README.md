@@ -23,7 +23,7 @@ git clone https://github.com/danielc92/django-sandbox.git
 ```sh
 virtualenv --python=/path/to/python3bin venv
 source venv/bin/activate
-pip install django django-tinymce django_crispy_forms
+pip install django django-tinymce django_crispy_forms pillow
 ```
 
 **To create the database for the first time**
