@@ -69,7 +69,7 @@ def article_create(request):
         form = form.as_p()
         form = form.replace('<label', '<label class="label"')
         form = form.replace('</select>', '</select></div>')
-        form = form.replace('<select', '<div class="select is-multiple"> <select size="8" ')
+        form = form.replace('<select', '<div class="select is-multiple"> <select')
         print(form)
     context = {'form': form, 'title': 'Create an article'}
 
