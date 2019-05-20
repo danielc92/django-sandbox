@@ -38,7 +38,8 @@ def return_article_data():
     data_json = [{'id': a.id, 
                   'article_content': a.article_content, 
                   'article_ct_date': a.article_ct_date,
-                  'article_name': a.article_name} for a in data]
+                  'article_name': a.article_name,
+                  'article_tags': [t.tag_name for t in a.tags.all()]} for a in data]
     return data_json
 
 
@@ -47,14 +48,11 @@ def article_list(request):
 
     if 'articles' in cache:
         data = cache.get('articles')
-        print("Getting the cache, it already exists.")
     else:
-
         data = return_article_data()
         cache.set('articles', data, timeout=CACHE_TTL)
-        print("Setting the cache")
 
-    # data = Article.objects.all()
+    # data = return_article_data()
 
     context = {'title':'Article list view',
                'data':data}
