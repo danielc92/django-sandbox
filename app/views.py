@@ -3,6 +3,14 @@ from django.http import HttpResponse
 from .models import Dog, DogOwner, Article
 from .forms import DogForm, ArticleForm
 
+from django.conf import settings
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
+
+
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
 # Create your views here.
 def owner_list(request):
 
@@ -23,9 +31,30 @@ def dog_list(request):
     return render(request, 'dog_list.html', context)
 
 
+# Function to fetch articles, convert to json format for redis storage
+def return_article_data():
+    data = Article.objects.all()
+    
+    data_json = [{'id': a.id, 
+                  'article_content': a.article_content, 
+                  'article_ct_date': a.article_ct_date,
+                  'article_name': a.article_name} for a in data]
+    return data_json
+
+
+# @cache_page(120)
 def article_list(request):
 
-    data = Article.objects.all()
+    if 'articles' in cache:
+        data = cache.get('articles')
+        print("Getting the cache, it already exists.")
+    else:
+
+        data = return_article_data()
+        cache.set('articles', data, timeout=CACHE_TTL)
+        print("Setting the cache")
+
+    # data = Article.objects.all()
 
     context = {'title':'Article list view',
                'data':data}
