@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Dog, DogOwner, Article
-from .forms import DogForm, ArticleForm
+from .forms import DogForm, ArticleForm, UserForm
 
 from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
@@ -104,3 +104,22 @@ def article_create(request):
 def success(request):
 
     return render(request, 'success.html', {})
+
+def user_create(request):
+
+    if request.method == 'POST':
+        
+        form = UserForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('success')
+
+    else:
+        form = UserForm()
+    
+    context = {'form': form, 'title':'Register'}
+                    
+    return 
