@@ -33,7 +33,7 @@ def dog_list(request):
 
 # Function to fetch articles, convert to json format for redis storage
 def return_article_data():
-    data = Article.objects.all()
+    data = Article.objects.all()[:1000]
     
     data_json = [{'id': a.id, 
                   'article_content': a.article_content, 
@@ -42,17 +42,16 @@ def return_article_data():
                   'article_tags': [t.tag_name for t in a.tags.all()]} for a in data]
     return data_json
 
-
-# @cache_page(120)
+@cache_page(300)
 def article_list(request):
 
-    if 'articles' in cache:
-        data = cache.get('articles')
-    else:
-        data = return_article_data()
-        cache.set('articles', data, timeout=CACHE_TTL)
+    # if 'articles' in cache:
+    #     data = cache.get('articles')
+    # else:
+    #     data = return_article_data()
+    #     cache.set('articles', data, timeout=CACHE_TTL)
 
-    # data = return_article_data()
+    data = return_article_data()
 
     context = {'title':'Article list view',
                'data':data}

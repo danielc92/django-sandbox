@@ -1,5 +1,12 @@
 from django.forms import ModelForm
 from .models import Dog, Article
+from django.contrib.auth.models import User
+
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'first_name', 'last_name', 'email']
 
 
 class DogForm(ModelForm):

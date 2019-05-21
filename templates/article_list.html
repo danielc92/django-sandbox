@@ -10,10 +10,8 @@
         <span>{{ title }}</span>
     </h1>
     {% for d in data %}
-    
     <div class="notification is-white">
         <article class="content">
-            <hr>
             <h2>{{ d.article_name }}</h2>
             <p>{{ d.article_content|safe }}</p>
             <p class="help has-text-info">Created on: {{ d.article_ct_date }}</p>
