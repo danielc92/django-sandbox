@@ -101,9 +101,11 @@ def article_create(request):
 
     return render(request, 'create.html', context)
 
+
 def success(request):
 
     return render(request, 'success.html', {})
+
 
 def user_create(request):
 
@@ -122,4 +124,4 @@ def user_create(request):
     
     context = {'form': form, 'title':'Register'}
                     
-    return 
+    return render(request, 'create.html', context)
