@@ -22,6 +22,7 @@ from app.views import (
     article_create,
     article_list,
     user_create,
+    setsession, getsession,
     success)
 
 from django.conf.urls.static import static
@@ -30,6 +31,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('getsession/', getsession),
+    path('setsession/', setsession),
     path('dog/list/', dog_list, name='dog_list'),
     path('dog/create/', dog_create, name='dog_create'),
     path('owner/list/', owner_list, name='owner_list'),

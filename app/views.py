@@ -103,7 +103,7 @@ def article_create(request):
 
 
 def success(request):
-
+    print(request.user)
     return render(request, 'success.html', {})
 
 
@@ -125,3 +125,17 @@ def user_create(request):
     context = {'form': form, 'title':'Register'}
                     
     return render(request, 'create.html', context)
+
+
+def setsession(request):
+    request.session['username'] = 'danielc92'
+    # Do something
+
+    return HttpResponse('Session has been set.')
+
+
+def getsession(request):
+    print(request.session.get('username'))
+    # Do something
+
+    return HttpResponse('Session has been requested.')
