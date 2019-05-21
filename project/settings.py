@@ -85,6 +85,8 @@ CACHES = {
 CACHE_TTL = 60 * 10
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_COOKIE_AGE = 2 * 60
+
 
 WSGI_APPLICATION = 'project.wsgi.application'
 

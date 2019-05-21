@@ -12,6 +12,9 @@ Concepts covered in this project:
 - Rendering templates from ORM Models
 - File uploading
 - Basic HTML knowledge
+- Postgres as backend database
+- Redis as backend cache for queries
+- Redis as session backend cache
 
 # Setup
 **How to obtain this repository:**
@@ -41,6 +44,8 @@ python manage.py migrate
 - Render Dogs/Owners/Articles in list style
 - Accessing all the custom models in admin panel
 - Tested MCE widget for html editing functionality
+- Setting and getting cached queries
+- Setting and getting cached session (note `SESSION_ENGINE` and `SESSION_COOKIE_AGE` used to control TTL)
 
 # Notes
 - When created a model/form class which uses ImageField make sure request.FILES is passed into form model (eg DogForm(request.POST, request.FILES))
