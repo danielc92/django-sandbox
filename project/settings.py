@@ -88,10 +88,23 @@ CACHE_TTL = 60 * 10
 WSGI_APPLICATION = 'project.wsgi.application'
 
 
+# SQLITE DATABASE CONFIGURATION
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# POSTGRESQL DATABASE CONFIGURATION
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'NAME':'djangosandbox',
+        'USER':'danielcorcoran',
+        'PASSWORD':'daniel12345',
+        'HOST':'192.168.56.103',
+        'PORT':''
     }
 }
 
