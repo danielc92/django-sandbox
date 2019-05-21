@@ -70,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+# Setting Redis as the cache backend
 
 CACHES = {
     "default": {
@@ -78,12 +79,14 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS":"django_redis.client.DefaultClient"
         },
-        "KEY_PREFIX": "prefix_1_"
+        "KEY_PREFIX": "sandbox-"
     }
 }
-
+# Time to live for cached queries/pages default
 CACHE_TTL = 60 * 10
 
+# Setting Session backend to cache
+# Time to live for sessions placed in cache
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_COOKIE_AGE = 2 * 60
 

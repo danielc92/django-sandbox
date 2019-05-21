@@ -87,7 +87,6 @@ def article_create(request):
         if form.is_valid():
 
             form.save()
-
             return redirect('success')
 
     else:
@@ -135,7 +134,11 @@ def setsession(request):
 
 
 def getsession(request):
-    print(request.session.get('username'))
-    # Do something
+    
+    username = request.session.get('username')
+    
+    if username: 
+        return HttpResponse('Session has been requested. Username is {}'.format(username))
+    else:
 
-    return HttpResponse('Session has been requested.')
+        return HttpResponse('You need to set a session...')
