@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
 from django.core.cache import cache
+from django.contrib.auth.decorators import login_required
 
 
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
@@ -33,7 +34,7 @@ def dog_list(request):
 
 # Function to fetch articles, convert to json format for redis storage
 def return_article_data():
-    data = Article.objects.all()[:1000]
+    data = Article.objects.all()
     
     data_json = [{'id': a.id, 
                   'article_content': a.article_content, 
@@ -89,6 +90,7 @@ def bulmafy_form(form):
     return form
 
 
+@login_required
 def article_create(request):
 
     if request.method == "POST":
@@ -148,3 +150,4 @@ def accounts_register(request):
     context = {'form': form}
 
     return render(request, 'create.html', context)
+
