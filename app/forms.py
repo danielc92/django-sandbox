@@ -1,13 +1,18 @@
 from django.forms import ModelForm
 from .models import Dog, Article
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
+class CustomRegisterForm(UserCreationForm):
 
-class UserForm(ModelForm):
+    # Adding a mandatory email field to the UserCreationForm
+    email = forms.EmailField()
+
     class Meta:
         model = User
-        fields = ['username', 'password', 'first_name', 'last_name', 'email']
-
+        fields = ['username', 'email', 'password1', 'password2']
+    
+    
 
 class DogForm(ModelForm):
     class Meta:

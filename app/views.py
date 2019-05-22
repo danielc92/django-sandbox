@@ -78,6 +78,17 @@ def dog_create(request):
 
     return render(request, 'create.html', context)
 
+
+def bulmafy_form(form):
+    form = form.as_p()
+    form = form.replace('<label', '<label class="label"')
+    form = form.replace('</select>', '</select></div>')
+    form = form.replace('<select', '<div class="select is-multiple"> <select')
+    form = form.replace('<span','<p class="help"><span')
+    form = form.replace('</span>', '</span></p>')
+    return form
+
+
 def article_create(request):
 
     if request.method == "POST":
@@ -91,11 +102,8 @@ def article_create(request):
 
     else:
         form = ArticleForm()
-        form = form.as_p()
-        form = form.replace('<label', '<label class="label"')
-        form = form.replace('</select>', '</select></div>')
-        form = form.replace('<select', '<div class="select is-multiple"> <select')
-        print(form)
+        form = bulmafy_form(form)
+
     context = {'form': form, 'title': 'Create an article'}
 
     return render(request, 'create.html', context)
@@ -106,29 +114,8 @@ def success(request):
     return render(request, 'success.html', {})
 
 
-def user_create(request):
-
-    if request.method == 'POST':
-        
-        form = UserForm(request.POST)
-
-        if form.is_valid():
-
-            form.save()
-
-            return redirect('success')
-
-    else:
-        form = UserForm()
-    
-    context = {'form': form, 'title':'Register'}
-                    
-    return render(request, 'create.html', context)
-
-
 def setsession(request):
     request.session['username'] = 'danielc92'
-    # Do something
 
     return HttpResponse('Session has been set.')
 
@@ -137,8 +124,29 @@ def getsession(request):
     
     username = request.session.get('username')
     
-    if username: 
+    if username:
+
         return HttpResponse('Session has been requested. Username is {}'.format(username))
     else:
 
         return HttpResponse('You need to set a session...')
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages # Flash messages
+
+def accounts_register(request):
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            print('{} has registered successfully'.format(username))
+            return redirect('success')
+        else:
+            form = UserCreationForm()
+            form = bulmafy_form(form)
+    
+    context = {'form': form}
+
+    return render(request, 'create.html', context)
