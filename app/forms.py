@@ -1,5 +1,5 @@
-from django.forms import ModelForm
 from .models import Dog, Article
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -14,13 +14,13 @@ class CustomRegisterForm(UserCreationForm):
     
     
 
-class DogForm(ModelForm):
+class DogForm(forms.ModelForm):
     class Meta:
         model = Dog
         fields = ['dog_name', 'dog_image', 'owner_id']
 
 
-class ArticleForm(ModelForm):
+class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = ['article_name', 'article_content', 'tags']

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Dog, DogOwner, Article
-from .forms import DogForm, ArticleForm, UserForm
+from .forms import DogForm, ArticleForm, CustomRegisterForm
 
 from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
@@ -131,20 +131,18 @@ def getsession(request):
 
         return HttpResponse('You need to set a session...')
 
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages # Flash messages
 
 def accounts_register(request):
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             print('{} has registered successfully'.format(username))
             return redirect('success')
         else:
-            form = UserCreationForm()
+            form = CustomRegisterForm()
             form = bulmafy_form(form)
     
     context = {'form': form}
