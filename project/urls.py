@@ -6,7 +6,7 @@ from app.views import (
     owner_list,
     article_create,
     article_list,
-    accounts_register,
+    accounts_register, accounts_change,
     setsession, getsession,
     success)
 
@@ -24,6 +24,7 @@ urlpatterns = [
     path('article/list/', article_list, name='article_list'),
     path('article/create/', article_create, name='article_create'),
     path('success/', success, name='success'),
+    path('accounts/change/', accounts_change, name='accounts_modify'),
     path('accounts/register/', accounts_register, name='accounts_register'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='accounts_login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='accounts_logout')

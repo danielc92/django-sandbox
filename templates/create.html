@@ -12,6 +12,9 @@
                 {{ form|safe }}
                 <button class="button is-success is-outlined" type="submit">Submit</button>
             </form>
+            {% if errors %}
+                <p class="help has-text-danger">{{errors}}</p>
+            {% endif %}
         </section>
     </section>
 </section>
