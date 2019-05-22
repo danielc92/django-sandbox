@@ -54,14 +54,14 @@ def article_list(request):
 
     data = return_article_data()
 
-    logged_in_as = request.user.username
-
-    print(type(logged_in_as))
-    print(len(logged_in_as))
+    u = request.user
+    print(u.is_authenticated)
+    print(u.is_anonymous)
+    print(dir(u))
 
     context = {'title':'Article list view',
                'data':data,
-               'logged_in_as':logged_in_as}
+               'logged_in_as':u}
 
     return render(request, 'article_list.html', context)
 
@@ -118,7 +118,7 @@ def article_create(request):
 
 
 def success(request):
-    print(request.user)
+
     return render(request, 'success.html', {})
 
 

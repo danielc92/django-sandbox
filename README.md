@@ -15,6 +15,7 @@ Concepts covered in this project:
 - Postgres as backend database
 - Redis as backend cache for queries
 - Redis as session backend cache
+- Authentication using inbuilt models (login, logout, login_required)
 
 # Setup
 **How to obtain this repository:**
@@ -46,6 +47,9 @@ python manage.py migrate
 - Tested MCE widget for html editing functionality
 - Setting and getting cached queries
 - Setting and getting cached session (note `SESSION_ENGINE` and `SESSION_COOKIE_AGE` used to control TTL)
+- Creating account (based on UserCreationForm)
+- Logging in with account (updating session)
+- Logging out (clearing session)
 
 # Notes
 - When created a model/form class which uses ImageField make sure request.FILES is passed into form model (eg DogForm(request.POST, request.FILES))
