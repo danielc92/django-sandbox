@@ -141,9 +141,9 @@ def accounts_register(request):
             username = form.cleaned_data.get('username')
             print('{} has registered successfully'.format(username))
             return redirect('success')
-        else:
-            form = CustomRegisterForm()
-            form = bulmafy_form(form)
+    else:
+        form = CustomRegisterForm()
+        form = bulmafy_form(form)
     
     context = {'form': form}
 
