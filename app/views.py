@@ -55,13 +55,10 @@ def article_list(request):
     data = return_article_data()
 
     u = request.user
-    print(u.is_authenticated)
-    print(u.is_anonymous)
-    print(dir(u))
 
     context = {'title':'Article list view',
                'data':data,
-               'logged_in_as':u}
+               'u':u}
 
     return render(request, 'article_list.html', context)
 

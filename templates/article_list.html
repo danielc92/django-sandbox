@@ -5,7 +5,13 @@
 <section class="section has-background-light">
 <section class="container">
 <section class="content">
-    <p class="help">Logged in as <strong>{{ logged_in_as }}</strong>. Logout by clicking <a href="{% url 'accounts_logout' %}">here</a></p>
+    {% if u.is_authenticated %}
+    <p class="help">Logged in as <strong>{{ u }}</strong>. Logout by clicking <a href="{% url 'accounts_logout' %}">here</a></p>
+    {% else %}
+    <p class="help">Not currently logged in (<strong>{{ u }}</strong>). Login by clicking <a href="{% url 'accounts_login' %}">here!</a></p>
+    {% endif %}
+    
+    
     <h1>
         <span>{{ title }}</span>
     </h1>
