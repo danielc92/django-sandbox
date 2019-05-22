@@ -13,6 +13,7 @@ class CustomRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
     
 
+
 class DogForm(forms.ModelForm):
     class Meta:
         model = Dog

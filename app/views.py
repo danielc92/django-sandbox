@@ -8,6 +8,7 @@ from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
 from django.core.cache import cache
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import ChangeUserForm
 
 
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
@@ -148,6 +149,22 @@ def accounts_register(request):
             return redirect('success')
     else:
         form = CustomRegisterForm()
+        form = bulmafy_form(form)
+    
+    context = {'form': form}
+
+    return render(request, 'create.html', context)
+
+
+def accounts_change(request):
+
+    if request.method == 'POST':
+        form = UserChangeForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            return redirect('success')
+    else:
+        form = UserChangeForm()
         form = bulmafy_form(form)
     
     context = {'form': form}
