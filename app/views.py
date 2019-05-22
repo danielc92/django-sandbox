@@ -43,7 +43,7 @@ def return_article_data():
                   'article_tags': [t.tag_name for t in a.tags.all()]} for a in data]
     return data_json
 
-@cache_page(300)
+
 def article_list(request):
 
     # if 'articles' in cache:
@@ -54,8 +54,14 @@ def article_list(request):
 
     data = return_article_data()
 
+    logged_in_as = request.user.username
+
+    print(type(logged_in_as))
+    print(len(logged_in_as))
+
     context = {'title':'Article list view',
-               'data':data}
+               'data':data,
+               'logged_in_as':logged_in_as}
 
     return render(request, 'article_list.html', context)
 
