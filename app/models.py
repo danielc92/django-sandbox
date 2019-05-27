@@ -1,6 +1,7 @@
 from django.db import models as m
 from datetime import datetime
 from tinymce.models import HTMLField
+import uuid
 # Models based on assumption that one dog can be owned by one owner
 # and multiple dogs can be owned by one owner (one to many)
 
@@ -38,3 +39,32 @@ class Article(m.Model):
 
     def __str__(self):
         return self.article_name
+
+
+
+class Occupant(m.Model):
+    occupant_full_name = models.CharField(max_length=255)
+    occupant_joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.occupant_full_name
+
+    class Meta:
+        ordering = ('occupant_full_name',)
+
+class Desk(m.Model):
+    desk_no = models.CharField(default=uuid.uuid4)
+    desk_level = models.IntegerField()
+    desk_build_date = models.DateTimeField(auto_now_add = True)
+    desk_info_modified = models.DateTimeField(auto_now = True)
+    desk_weight = models.DecimalField()
+    desk_cost = models.DecimalField()
+    desk_width = models.DecimalField()
+    desk_length = models.DecimalField()
+    desk_occupant = models.ForeignKey(Occupant, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.desk_no
+
+    class Meta:
+        ordering = ('desk_no',)
