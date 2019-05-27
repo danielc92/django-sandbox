@@ -43,8 +43,8 @@ class Article(m.Model):
 
 
 class Occupant(m.Model):
-    occupant_full_name = models.CharField(max_length=255)
-    occupant_joined = models.DateTimeField(auto_now_add=True)
+    occupant_full_name = m.CharField(max_length=255)
+    occupant_joined = m.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.occupant_full_name
@@ -53,15 +53,15 @@ class Occupant(m.Model):
         ordering = ('occupant_full_name',)
 
 class Desk(m.Model):
-    desk_no = models.CharField(default=uuid.uuid4)
-    desk_level = models.IntegerField()
-    desk_build_date = models.DateTimeField(auto_now_add = True)
-    desk_info_modified = models.DateTimeField(auto_now = True)
-    desk_weight = models.DecimalField()
-    desk_cost = models.DecimalField()
-    desk_width = models.DecimalField()
-    desk_length = models.DecimalField()
-    desk_occupant = models.ForeignKey(Occupant, on_delete=models.CASCADE)
+    desk_no = m.CharField(default=uuid.uuid4)
+    desk_level = m.IntegerField()
+    desk_build_date = m.DateTimeField(auto_now_add = True)
+    desk_info_modified = m.DateTimeField(auto_now = True)
+    desk_weight = m.DecimalField(max_digits=10, decimal_places=2)
+    desk_cost = m.DecimalField(max_digits=10, decimal_places=2
+    desk_width = m.DecimalField(max_digits=10, decimal_places=2)
+    desk_length = m.DecimalField(max_digits=10, decimal_places=2)
+    desk_occupant = m.ForeignKey(Occupant, on_delete=m.CASCADE)
 
     def __str__(self):
         return self.desk_no
