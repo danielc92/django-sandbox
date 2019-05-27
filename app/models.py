@@ -53,12 +53,12 @@ class Occupant(m.Model):
         ordering = ('occupant_full_name',)
 
 class Desk(m.Model):
-    desk_no = m.CharField(default=uuid.uuid4)
+    desk_no = m.CharField(default=uuid.uuid4, max_length=255)
     desk_level = m.IntegerField()
     desk_build_date = m.DateTimeField(auto_now_add = True)
     desk_info_modified = m.DateTimeField(auto_now = True)
     desk_weight = m.DecimalField(max_digits=10, decimal_places=2)
-    desk_cost = m.DecimalField(max_digits=10, decimal_places=2
+    desk_cost = m.DecimalField(max_digits=10, decimal_places=2)
     desk_width = m.DecimalField(max_digits=10, decimal_places=2)
     desk_length = m.DecimalField(max_digits=10, decimal_places=2)
     desk_occupant = m.ForeignKey(Occupant, on_delete=m.CASCADE)
