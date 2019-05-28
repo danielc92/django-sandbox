@@ -182,7 +182,7 @@ def accounts_change(request):
     return render(request, 'create.html', context)
 
 
-class DeskView(ListView):
+class DeskList(ListView):
 
     model = Desk
     template_name = 'desk_list_view.html'
@@ -198,6 +198,7 @@ class DeskUpdate(UpdateView):
     model = Desk
     template_name = 'desk_update_view.html'
     fields = ['desk_level', 'desk_weight', 'desk_cost', 'desk_width', 'desk_length', 'desk_occupant']
+
 
 class DeskCreate(CreateView):
 
