@@ -52,6 +52,7 @@ class Occupant(m.Model):
     class Meta:
         ordering = ('occupant_full_name',)
 
+
 class Desk(m.Model):
     desk_no = m.CharField(default=uuid.uuid4, max_length=255)
     desk_level = m.IntegerField()

@@ -10,6 +10,8 @@ from django.core.cache import cache
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
@@ -178,3 +180,8 @@ def accounts_change(request):
     context = {'form': form, 'errors': errors}
 
     return render(request, 'create.html', context)
+
+
+class DeskView(ListView):
+
+    model = 
