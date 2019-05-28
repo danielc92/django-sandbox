@@ -27,7 +27,7 @@ urlpatterns = [
     path('success/', success, name='success'),
     path('desk/list/', DeskList.as_view(), name='desk_list_view'),
     path('desk/create/', DeskCreate.as_view(), name='desk_create_view'),
-    path('desk/update/', DeskUpdate.as_view(), name='desk_update_view'),
+    path('desk/update/<int:pk>/', DeskUpdate.as_view(), name='desk_update_view'),
     path('accounts/change/', accounts_change, name='accounts_modify'),
     path('accounts/register/', accounts_register, name='accounts_register'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='accounts_login'),
