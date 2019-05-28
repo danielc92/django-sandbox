@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Dog, DogOwner, Article
+from .models import Dog, DogOwner, Article, Desk, Occupant
 from .forms import DogForm, ArticleForm, CustomRegisterForm
 
 from django.conf import settings
@@ -184,4 +184,10 @@ def accounts_change(request):
 
 class DeskView(ListView):
 
-    model = 
+    model = Desk
+    template_name = 'desk_list_view.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Desk List View'
+        return context

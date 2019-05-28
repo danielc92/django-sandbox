@@ -67,5 +67,8 @@ class Desk(m.Model):
     def __str__(self):
         return self.desk_no
 
+    def return_fields(self):
+        return ['desk_no', 'desk_level', 'desk_build_date', 'desk_info_modified', 
+        'desk_weight', 'desk_width', 'desk_length', 'desk_occupant']
     class Meta:
         ordering = ('desk_no',)

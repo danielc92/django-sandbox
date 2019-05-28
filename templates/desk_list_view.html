@@ -6,7 +6,17 @@
             {% for desk in object_list %}
             <div class="notification">
                 
-
+                <div class="content">
+                    <h3>{{ desk.desk_no }}</h3>
+                    <ul>
+                        <li>Occupant: {{ desk.desk_occupant }}</li>
+                        <li>Cost: ${{ desk.desk_cost }}</li>
+                        <li>Weight (kg): {{ desk.desk_weight }}</li>
+                        <li>Floor Level: {{ desk.desk_level }}</li>
+                        <li>Width: {{ desk.desk_width }}</li>
+                        <li>Length: {{ desk.desk_length }}</li>
+                    </ul>
+                </div>
             </div>
             {% endfor %}
         </section>
