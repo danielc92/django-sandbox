@@ -16,6 +16,7 @@ Concepts covered in this project:
 - Redis as backend cache for queries
 - Redis as session backend cache
 - Authentication using inbuilt models (login, logout, login_required)
+- Using Class Based views for Listing, Updating, Creating objects
 
 # Setup
 **How to obtain this repository:**
@@ -50,6 +51,7 @@ python manage.py migrate
 - Creating account (based on UserCreationForm)
 - Logging in with account (updating session)
 - Logging out (clearing session)
+- Created Class based views/templates to list, update and create new `Desk` objects
 
 # Notes
 - When created a model/form class which uses ImageField make sure request.FILES is passed into form model (eg DogForm(request.POST, request.FILES))
@@ -61,7 +63,9 @@ python manage.py migrate
 - Daniel Corcoran
 
 # Sources
-- [Django Documentation](https://docs.djangoproject.com/en/2.2/)
+- [Django Documentation Home Page](https://docs.djangoproject.com/en/2.2/)
+- [Django Documentation - ListView, DetailView](https://docs.djangoproject.com/en/2.2/topics/class-based-views/generic-display/)
+- [Django Documentation - Generic Editing Views](https://docs.djangoproject.com/en/2.2/ref/class-based-views/generic-editing/)
 - [Adding TinyMCE editor to Django Tutorial](https://www.codementor.io/hiteshgarg14/how-to-integrate-custom-rich-text-editor-in-django-54czmp0gi)
 - [User Registration Tutorial by Corey Schafer](https://www.youtube.com/watch?v=q4jPR-M0TAQ)
 - [Login, Logout Tutorial by Corey Schafer](https://www.youtube.com/watch?v=3aVqWaLjqS4)
