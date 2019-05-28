@@ -8,7 +8,7 @@ from app.views import (
     article_list,
     accounts_register, accounts_change,
     setsession, getsession,
-    DeskView,
+    DeskView,DeskCreate, 
     success)
 
 from django.conf.urls.static import static
@@ -26,6 +26,7 @@ urlpatterns = [
     path('article/create/', article_create, name='article_create'),
     path('success/', success, name='success'),
     path('desk/list/', DeskView.as_view(), name='desk_list'),
+    path('desk/create/', DeskCreate.as_view(), name='desk_create'),
     path('accounts/change/', accounts_change, name='accounts_modify'),
     path('accounts/register/', accounts_register, name='accounts_register'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='accounts_login'),
