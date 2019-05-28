@@ -1,4 +1,5 @@
 from django.db import models as m
+from django.urls import reverse
 from datetime import datetime
 from tinymce.models import HTMLField
 import uuid
@@ -70,5 +71,10 @@ class Desk(m.Model):
     def return_fields(self):
         return ['desk_no', 'desk_level', 'desk_build_date', 'desk_info_modified', 
         'desk_weight', 'desk_width', 'desk_length', 'desk_occupant']
+    
+    def get_absolute_url(self):
+        return reverse('desk_list_view')
+
     class Meta:
         ordering = ('desk_no',)
+

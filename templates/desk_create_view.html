@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="section">
+        <section class="container">
+            <form action="" class="form" method="POST">
+                <div class="content">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button class="button is-outlined is-success" type="submit">Submit</button>
+            </div></form>
+        </section>
+    </section>
+{% endblock content %}
