@@ -191,3 +191,9 @@ class DeskView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Desk List View'
         return context
+
+class DeskCreate(CreateView):
+
+    model = Desk
+    template_name = 'desk_create_view.html'
+    fields = ['desk_level', 'desk_weight', 'desk_cost', 'desk_width', 'desk_length', 'desk_occupant']
